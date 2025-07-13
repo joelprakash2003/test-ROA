@@ -1,0 +1,1739 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Performance optimizations to prevent flickering during fast scrolling */
+html {
+    /* Removed scroll-behavior: smooth to prevent conflicts with JavaScript scrolling */
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Optimize all transitions for better performance */
+* {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Change background gradient to modern blue-purple */
+html body {
+    background-color: #1a1a2e !important;
+    background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #16213e 15%, #0f3460 85%) !important;
+    background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #16213e 15%, #0f3460 85%) !important;
+    background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #16213e 15%, #0f3460 85%) !important;
+    background-image: url("images/overlay.png"), linear-gradient(45deg, #16213e 15%, #0f3460 85%) !important;
+}
+
+/* Logo size control */
+#header.alt .logo img {
+    max-width: 200px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Services Grid - New Design */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    margin: 3em 0;
+    width: 100%;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.service-card:hover {
+    transform: translateY(-3px) translateZ(0);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.service-card .service-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.service-card .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.03) translateZ(0);
+}
+
+.service-card .service-content {
+    padding: 1.5em;
+}
+
+.service-card .service-content h3 {
+    color: #1e3a8a;
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+.service-card .service-content p {
+    color: #374151;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+/* Testimonials Image */
+.testimonials-image {
+    margin: 3em auto;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive adjustments for services grid */
+@media screen and (max-width: 980px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5em;
+    }
+    
+    .service-card .service-image {
+        height: 160px;
+    }
+    
+    .testimonials-image img {
+        height: 200px;
+    }
+    
+    .insurance-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5em;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+    
+    .service-card .service-image {
+        height: 150px;
+    }
+    
+    .service-card .service-content {
+        padding: 1.2em;
+    }
+    
+    .testimonials-image {
+        margin: 2em auto;
+    }
+    
+    .testimonials-image img {
+        height: 180px;
+    }
+    
+    .insurance-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5em;
+    }
+    
+    .insurance-card {
+        padding: 1.5em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .insurance-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2em;
+    }
+    
+    .insurance-card {
+        padding: 1.2em;
+    }
+    
+    .insurance-card .insurance-icon .icon {
+        font-size: 2em;
+    }
+    
+    .insurance-card h3 {
+        font-size: 1.1em;
+        margin-bottom: 1.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .insurance-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1em;
+    }
+    
+    .insurance-card {
+        padding: 1em;
+    }
+    
+    .insurance-card .insurance-icon .icon {
+        font-size: 1.8em;
+    }
+    
+    .insurance-card h3 {
+        font-size: 1em;
+        margin-bottom: 1em;
+    }
+    
+    .insurance-card .insurance-list li {
+        font-size: 0.9em;
+        padding: 0.4em 0;
+    }
+}
+
+/* Modern fonts for all text - HIGHEST PRIORITY */
+html body, 
+html input, 
+html select, 
+html textarea, 
+html button {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+html h1, 
+html h2, 
+html h3, 
+html h4, 
+html h5, 
+html h6, 
+html #nav ul li a, 
+html .button, 
+html input[type="submit"] {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Contact buttons - simple inline design */
+.contact-buttons {
+    display: inline-flex;
+    gap: 1em;
+    margin-top: 1.5em;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    border-radius: 25px;
+    color: #ffffff !important;
+    display: inline-block;
+    font-weight: 600;
+    padding: 0.75em 1.25em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+.contact-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+}
+
+@media screen and (max-width: 736px) {
+    .contact-buttons {
+        flex-direction: column;
+        gap: 0.75em;
+    }
+}
+
+/* Insurance section - Modern Card Grid */
+.insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    margin: 3em 0;
+    width: 100%;
+}
+
+.insurance-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    text-align: center;
+}
+
+.insurance-card:hover {
+    transform: translateY(-3px) translateZ(0);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.insurance-card .insurance-icon {
+    margin-bottom: 1.5em;
+}
+
+.insurance-card .insurance-icon .icon {
+    color: #3b82f6;
+    font-size: 2.5em;
+    display: block;
+}
+
+.insurance-card h3 {
+    color: #1e3a8a;
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+}
+
+.insurance-card .insurance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.insurance-card .insurance-list li {
+    color: #374151;
+    padding: 0.5em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95em;
+    font-weight: 500;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.insurance-card .insurance-list li:last-child {
+    border-bottom: none;
+}
+
+.insurance-card .insurance-list li:before {
+    content: "✓";
+    color: #3b82f6;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+}
+
+.insurance-card:hover .insurance-list li {
+    color: #1f2937;
+}
+
+.insurance-card:hover .insurance-list li:before {
+    color: #1e3a8a;
+}
+
+/* Insurance content - single column center aligned */
+.insurance-content {
+    max-width: 800px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.insurance-content p {
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1em;
+}
+
+/* FAQ section - LIGHT GRAY BOXES WITH DARK TEXT AND BLUE BORDERS */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2em;
+    margin: 3em 0;
+    width: 100%;
+}
+
+
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 2em;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+.faq-item h3 {
+    color: #1e3a8a;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+
+.faq-item p {
+    color: #374151;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Get Started section - LIGHT GRAY BOXES WITH DARK TEXT AND BLUE BORDERS */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+    margin-top: 3em;
+    width: 100%;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 2em 1.5em;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+.step .icon {
+    color: #3b82f6;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    display: block;
+}
+
+.step h3 {
+    color: #1e3a8a;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+.step p {
+    color: #374151;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Contact form - WIDER AND BETTER BUTTON */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    margin-top: 3em;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 3em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.contact-form h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/* Form layout */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+/* Referral modal form layout */
+.referral-modal .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin-bottom: 1.5em;
+}
+
+.referral-modal .form-group {
+    margin-bottom: 1.5em;
+}
+
+.referral-modal .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Form inputs styling */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    color: #1f2937;
+    padding: 1em;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    background: rgba(255, 255, 255, 1);
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Redesigned button with WHITE TEXT - MAXIMUM SPECIFICITY */
+html body .submit-btn,
+html body .contact-form .submit-btn,
+html body #contact .submit-btn,
+html body form .submit-btn,
+html body button[type="submit"],
+html body input[type="submit"],
+html body .contact-form button[type="submit"],
+html body .contact-form input[type="submit"],
+html body #contact button[type="submit"],
+html body #contact input[type="submit"],
+html body form button[type="submit"],
+html body form input[type="submit"] {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    padding: 1.2em 3em !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.1em !important;
+    text-align: left !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    min-width: auto !important;
+    height: auto !important;
+    white-space: normal !important;
+}
+
+html body .submit-btn:hover,
+html body .contact-form .submit-btn:hover,
+html body #contact .submit-btn:hover,
+html body form .submit-btn:hover,
+html body button[type="submit"]:hover,
+html body input[type="submit"]:hover,
+html body .contact-form button[type="submit"]:hover,
+html body .contact-form input[type="submit"]:hover,
+html body #contact button[type="submit"]:hover,
+html body #contact input[type="submit"]:hover,
+html body form button[type="submit"]:hover,
+html body form input[type="submit"]:hover {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4) !important;
+    color: #ffffff !important;
+}
+
+html body .submit-btn:active,
+html body .contact-form .submit-btn:active,
+html body #contact .submit-btn:active,
+html body form .submit-btn:active,
+html body button[type="submit"]:active,
+html body input[type="submit"]:active,
+html body .contact-form button[type="submit"]:active,
+html body .contact-form input[type="submit"]:active,
+html body #contact button[type="submit"]:active,
+html body #contact input[type="submit"]:active,
+html body form button[type="submit"]:active,
+html body form input[type="submit"]:active {
+    transform: translateY(0) !important;
+    color: #ffffff !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 980px) {
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 2em;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-form {
+        padding: 1.5em;
+    }
+    
+    .faq-item {
+        padding: 1.5em;
+    }
+    
+    .step {
+        padding: 1.5em;
+    }
+    
+    .submit-btn {
+        padding: 1em 2em;
+        font-size: 1em;
+    }
+    
+
+}
+
+/* COMPLETE OVERRIDE of ALL icon.major styles from main.css - MAXIMUM SPECIFICITY */
+html body .icon.major,
+html body #main .icon.major,
+html body .features li .icon.major,
+html body .statistics li .icon.major,
+html body .step .icon.major,
+html body .faq-item .icon.major {
+    border: none !important;
+    display: block !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 0 1em 0 !important;
+    cursor: default !important;
+    background: none !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: normal !important;
+    position: static !important;
+    overflow: visible !important;
+}
+
+html body .icon.major:before,
+html body #main .icon.major:before,
+html body .features li .icon.major:before,
+html body .statistics li .icon.major:before,
+html body .step .icon.major:before,
+html body .faq-item .icon.major:before {
+    display: block !important;
+    font-size: 2.5em !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: normal !important;
+    border-radius: 0 !important;
+    border: none !important;
+    text-align: center !important;
+    background: none !important;
+    color: #3b82f6 !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Override ALL icon styles with maximum specificity */
+html body .icon,
+html body .icon:before,
+html body .icon.alt,
+html body .icon.alt:before {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+/* Fix spotlight image to be round and big */
+.spotlight .image {
+    border-radius: 100% !important;
+    padding: 0.5em !important;
+}
+
+.spotlight .image img {
+    border-radius: 100% !important;
+    width: 28em !important;
+    height: 28em !important;
+    object-fit: cover !important;
+}
+
+@media screen and (max-width: 980px) {
+    .spotlight .image img {
+        width: 24em !important;
+        height: 24em !important;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .spotlight .image img {
+        width: 20em !important;
+        height: 20em !important;
+    }
+}
+
+/* Override any conflicting font styles with maximum specificity */
+html body,
+html body input,
+html body select,
+html body textarea,
+html body button,
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body #nav ul li a,
+html body .button,
+html body input[type="submit"] {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+/* Ensure modal appears above sticky header */
+.modal,
+.modal * {
+    z-index: 9999 !important;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #16213e, #0f3460);
+    margin: 5% auto;
+    padding: 2em;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10000;
+}
+
+.modal-content h2 {
+    color: #ffffff;
+    margin-bottom: 1em;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.modal-content p {
+    color: #e5e7eb;
+    line-height: 1.6;
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+
+.modal-content strong {
+    color: #3b82f6;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10001;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #3b82f6;
+}
+
+.modal-content .button {
+    margin-top: 1.5em;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    border: none;
+    color: #ffffff;
+    padding: 0.75em 1.5em;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+}
+
+.modal-content .button:hover {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+/* Hide header when modal is open */
+body.modal-open #header,
+body.modal-open #nav {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+/* Smooth transitions for modal */
+.modal {
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Prevent layout shift */
+html, body {
+    scrollbar-gutter: stable;
+}
+
+/* Referral Modal Styles */
+.referral-modal {
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    max-width: 800px !important;
+    width: 90% !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    margin: 5% auto !important;
+    top: 0 !important;
+    padding: 1.5em !important;
+    position: relative !important;
+}
+
+.referral-modal h2 {
+    color: #1e3a8a !important;
+    margin-bottom: 0.3em !important;
+    font-size: 1.6em !important;
+    padding-right: 40px !important;
+}
+
+.referral-modal p {
+    color: #6b7280 !important;
+    margin-bottom: 1.5em !important;
+    font-size: 0.95em !important;
+}
+
+.referral-modal h3 {
+    color: #1e3a8a !important;
+    font-size: 1.1em !important;
+    margin-bottom: 0.8em !important;
+    font-weight: 600 !important;
+}
+
+.referral-modal h4 {
+    color: #374151 !important;
+    font-size: 1em !important;
+    margin: 0 !important;
+    font-weight: 600 !important;
+}
+
+.form-section {
+    margin-bottom: 2em;
+}
+
+.form-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    margin: 2em 0;
+}
+
+.referral-item {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 1em;
+    transition: all 0.3s ease;
+}
+
+.referral-item:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.referral-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1em;
+    gap: 1em;
+}
+
+.remove-btn {
+    background: transparent;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    padding: 0.6em 1.2em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+    border-color: #9ca3af;
+}
+
+.add-referral-btn {
+    background: transparent;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    padding: 0.6em 1.2em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1em;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-referral-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+    border-color: #9ca3af;
+}
+
+.add-referral-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.referral-modal .submit-btn,
+.referral-modal input[type="submit"] {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 1em 2.5em !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    font-size: 1.1em !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4) !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.referral-modal .submit-btn:hover,
+.referral-modal input[type="submit"]:hover {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5) !important;
+}
+
+/* Clickable step styling */
+.clickable-step {
+    cursor: pointer;
+    position: relative;
+}
+
+.clickable-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.clickable-step:hover::before {
+    opacity: 1;
+}
+
+.clickable-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+}
+
+/* Form inputs in referral modal */
+.referral-modal input[type="text"],
+.referral-modal input[type="email"],
+.referral-modal input[type="tel"] {
+    width: 100%;
+    padding: 0.75em;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    color: #1f2937;
+}
+
+.referral-modal input[type="text"]:focus,
+.referral-modal input[type="email"]:focus,
+.referral-modal input[type="tel"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive adjustments for referral modal */
+@media screen and (max-width: 736px) {
+    /* Ensure header is always visible on mobile */
+    #header {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Hide navigation on mobile screens */
+    #nav {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* Remove extra padding from main since nav is hidden */
+    #main {
+        padding-top: 0 !important;
+    }
+    
+    .referral-modal {
+        margin: 15% auto !important;
+        width: 90% !important;
+        max-width: 500px !important;
+        max-height: 80vh !important;
+        padding: 1em !important;
+    }
+    
+    .referral-modal h2 {
+        font-size: 1.4em !important;
+    }
+    
+    .referral-modal p {
+        font-size: 0.9em !important;
+    }
+    
+    .referral-modal h3 {
+        font-size: 1em !important;
+    }
+    
+    .referral-item {
+        padding: 1em;
+    }
+    
+    .referral-modal .form-row {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    
+    .referral-modal .form-group {
+        width: 100%;
+    }
+    
+    .form-actions {
+        gap: 0.5em;
+    }
+    
+    .add-referral-btn {
+        font-size: 0.85em;
+        padding: 0.5em 1em;
+    }
+    
+    .referral-modal .submit-btn {
+        font-size: 1em !important;
+        padding: 0.8em 2em !important;
+    }
+    
+    /* Position close button above title on mobile */
+    .referral-modal .close {
+        top: 8px !important;
+        right: 12px !important;
+        font-size: 24px !important;
+    }
+    
+    .referral-modal h2 {
+        padding-right: 35px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Ensure header is always visible on mobile */
+    #header {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 2em 1em 0.5em 1em !important;
+    }
+    
+    #header.alt {
+        padding: 3em 1em 1em 1em !important;
+    }
+    
+    /* Hide navigation on mobile screens */
+    #nav {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* Remove extra padding from main since nav is hidden */
+    #main {
+        padding-top: 0 !important;
+    }
+    
+    .referral-modal {
+        margin: 20% auto !important;
+        width: 92% !important;
+        max-width: 450px !important;
+        max-height: 75vh !important;
+        padding: 0.8em !important;
+    }
+    
+    .referral-modal h2 {
+        font-size: 1.3em !important;
+    }
+    
+    .referral-modal p {
+        font-size: 0.85em !important;
+    }
+    
+    .referral-item {
+        padding: 0.8em;
+    }
+    
+    .referral-modal .submit-btn {
+        font-size: 0.95em !important;
+        padding: 0.7em 1.8em !important;
+    }
+    
+    /* Position close button above title on mobile */
+    .referral-modal .close {
+        top: 6px !important;
+        right: 10px !important;
+        font-size: 22px !important;
+    }
+    
+    .referral-modal h2 {
+        padding-right: 30px !important;
+    }
+}
+
+/* Very small screens - hide navigation completely */
+@media screen and (max-width: 360px) {
+    #nav {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    #main {
+        padding-top: 0 !important;
+    }
+}
+
+/* Assessment Modal Styles */
+.assessment-contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 2em 0;
+}
+
+/* Insurance Modal Styles */
+.insurance-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+    margin: 2em 0;
+}
+
+.insurance-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5em;
+    border: 1px solid rgba(140, 201, 240, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.insurance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8cc9f0, #1d4ed8);
+}
+
+.insurance-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: rgba(140, 201, 240, 0.4);
+}
+
+.insurance-card h3 {
+    color: #1d4ed8;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.insurance-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.insurance-card li {
+    padding: 0.4em 0;
+    color: #636363;
+    position: relative;
+    padding-left: 1.2em;
+    font-size: 0.95em;
+    transition: color 0.2s ease;
+}
+
+.insurance-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8cc9f0;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.2s ease;
+}
+
+.insurance-card:hover li {
+    color: #4a5568;
+}
+
+.insurance-card:hover li:before {
+    color: #1d4ed8;
+}
+
+/* Mobile responsive for insurance modal */
+@media screen and (max-width: 736px) {
+    .insurance-modal-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+    
+    .insurance-card {
+        padding: 1.2em;
+    }
+    
+    .insurance-card h3 {
+        font-size: 1em;
+    }
+    
+    .insurance-card li {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .insurance-card {
+        padding: 1em;
+    }
+    
+    .insurance-card h3 {
+        font-size: 0.95em;
+    }
+    
+    .insurance-card li {
+        font-size: 0.85em;
+    }
+}
+
+/* Service Areas Modal Styles */
+.service-areas-grid {
+    margin: 1.5em 0;
+}
+
+.service-area-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 1.5em;
+    border: 1px solid rgba(140, 201, 240, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.service-area-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8cc9f0, #1d4ed8);
+}
+
+.service-area-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: rgba(140, 201, 240, 0.4);
+}
+
+.service-area-card .icon {
+    font-size: 2em;
+    color: #1d4ed8;
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+.service-area-card h3 {
+    color: #1d4ed8;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.counties-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.6em;
+    margin-top: 1em;
+}
+
+.county-item {
+    padding: 0.4em 0.6em;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    border: 1px solid rgba(140, 201, 240, 0.2);
+    transition: all 0.2s ease;
+    font-size: 0.85em;
+    color: #636363;
+    text-align: center;
+    font-weight: 500;
+}
+
+.county-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(140, 201, 240, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #1d4ed8;
+}
+
+
+
+/* Mobile responsive for service areas modal */
+@media screen and (max-width: 736px) {
+    .service-area-card {
+        padding: 1.5em;
+    }
+    
+    .service-area-card .icon {
+        font-size: 2em;
+    }
+    
+    .service-area-card h3 {
+        font-size: 1.1em;
+    }
+    
+    .counties-list {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.6em;
+    }
+    
+    .county-item {
+        font-size: 0.85em;
+        padding: 0.5em 0.6em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .service-area-card {
+        padding: 1.2em;
+    }
+    
+    .service-area-card .icon {
+        font-size: 1.8em;
+    }
+    
+    .service-area-card h3 {
+        font-size: 1em;
+    }
+    
+    .counties-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5em;
+    }
+    
+    .county-item {
+        font-size: 0.8em;
+        padding: 0.4em 0.5em;
+    }
+}
+
+/* Testimonials Section Styles */
+.testimonials-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0.25em 0;
+}
+
+/* Remove space between header and testimonials */
+#testimonials .major {
+    margin-bottom: 0.5em !important;
+}
+
+#testimonials .major h2 {
+    margin-bottom: 0.25em !important;
+}
+
+/* Reduce space between contact header and form */
+#contact .major {
+    margin-bottom: 0.5em !important;
+}
+
+#contact .major h2 {
+    margin-bottom: 0.25em !important;
+}
+
+.testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.25em;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-item {
+    min-width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+    display: none;
+}
+
+.testimonial-item.active {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+}
+
+.testimonial-content {
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.testimonial-stars {
+    margin-bottom: 0.75em;
+}
+
+.star {
+    color: #fbbf24;
+    font-size: 1.5em;
+    margin: 0 0.1em;
+    text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+}
+
+.testimonial-text {
+    color: #374151;
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.testimonial-author h4 {
+    color: #1e3a8a;
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+    font-weight: 700;
+}
+
+.author-location {
+    color: #6b7280;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.testimonials-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 0.25em;
+}
+
+.testimonial-nav {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-nav:hover {
+    transform: scale(1.1);
+}
+
+.testimonial-nav .icon {
+    color: #3b82f6;
+    font-size: 1.2em;
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 0.5em;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #3b82f6;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: rgba(59, 130, 246, 0.6);
+}
+
+.leave-review-section {
+    text-align: center;
+    margin-top: 0.75em;
+}
+
+.leave-review-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #3b82f6 !important;
+    text-decoration: none;
+    padding: 0.75em 1.5em;
+    border-radius: 8px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    font-size: 0.9em;
+}
+
+.leave-review-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-1px);
+}
+
+.leave-review-btn .icon {
+    font-size: 1em;
+}
+
+
+
+/* Responsive design for testimonials */
+@media screen and (max-width: 736px) {
+    .testimonial-content {
+        padding: 2em 1.5em;
+    }
+    
+    .testimonial-text {
+        font-size: 1em;
+    }
+    
+    .testimonials-controls {
+        gap: 1.5em;
+    }
+    
+    .testimonial-nav {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .leave-review-btn {
+        padding: 0.875em 1.75em;
+        font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .testimonial-content {
+        padding: 1.5em 1em;
+    }
+    
+    .testimonial-text {
+        font-size: 0.95em;
+    }
+    
+    .testimonials-controls {
+        gap: 1em;
+    }
+    
+    .testimonial-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .testimonial-nav .icon {
+        font-size: 1em;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .leave-review-btn {
+        padding: 0.75em 1.5em;
+        font-size: 0.9em;
+    }
+} 
